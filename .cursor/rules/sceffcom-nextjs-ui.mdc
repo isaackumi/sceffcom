@@ -1,0 +1,24 @@
+---
+description: Premium UI for SCEFFCOM Next.js — design system, stack, 21st workflow
+globs: "**/*.{tsx,ts,css}"
+alwaysApply: false
+---
+
+# Next.js UI quality (sceffcom-nextjs)
+
+When changing or building **pages, layout, or components**:
+
+1. **Design system first** — Run from repo root:
+   - `python3 .cursor/skills/ui-ux-pro-max/scripts/search.py "<product + audience + mood>" --design-system -p "SCEFFCOM"`
+   - Stack details: `python3 .cursor/skills/ui-ux-pro-max/scripts/search.py "<topic>" --stack nextjs`
+   Follow palette, typography, motion, and anti-patterns from the output.
+
+2. **Match the stack** — Next.js App Router, Tailwind, Radix, `framer-motion`, `lucide-react`, `cva` / `clsx` / `tailwind-merge`. Extend; do not add parallel UI libraries without reason.
+
+3. **Readable UI** — High contrast body copy (`text-neutral-700`+ on light backgrounds). Bagoss for headings (local `@font-face` in `globals.css`). System UI sans for body. Focus rings, landmarks, reduced motion.
+
+4. **21st.dev** — Dev toolbar: `@21st-extension/toolbar-next` + VS Code extension `21st-dev.21st-extension`. Run `npm run dev`, select elements, send context to the agent. Hero region: `#hero__21st`.
+
+5. **Brand** — SCEFFCOM CONSULT: professional training/consulting tone. Amber accents on neutral base; avoid generic purple SaaS templates.
+
+6. **Content** — Edit copy in `src/data/content.ts` only; use `siteContent.meta` / `src/lib/site.ts` for URLs and nav labels.
