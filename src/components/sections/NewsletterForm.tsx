@@ -11,23 +11,17 @@ export default function NewsletterForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email.trim()) {
-      setStatus('error')
-      setMessage('Please enter your email address.')
-      return
-    }
-    if (!EMAIL_REGEX.test(email)) {
+    if (!email.trim() || !EMAIL_REGEX.test(email)) {
       setStatus('error')
       setMessage('Please enter a valid email address.')
       return
     }
-
     setStatus('loading')
     setMessage('')
     try {
       await new Promise((r) => setTimeout(r, 800))
       setStatus('success')
-      setMessage('Thank you! You have been subscribed.')
+      setMessage('Subscribed successfully.')
       setEmail('')
     } catch {
       setStatus('error')
@@ -45,15 +39,12 @@ export default function NewsletterForm() {
           placeholder="your@email.com"
           disabled={status === 'loading'}
           aria-label="Email for newsletter subscription"
-          aria-invalid={status === 'error'}
-          aria-describedby={message ? 'newsletter-message' : undefined}
-          className="w-full rounded-full border border-border bg-cream px-5 py-3 text-ink placeholder:text-ink-faint transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20 disabled:opacity-70"
+          className="w-full border border-stone/20 bg-midnight-light px-4 py-3 text-stone placeholder:text-stone/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold disabled:opacity-70"
         />
         {message && (
           <p
-            id="newsletter-message"
             role="status"
-            className={`text-sm font-medium ${status === 'success' ? 'text-forest' : 'text-red-600'}`}
+            className={`text-sm ${status === 'success' ? 'text-gold-light' : 'text-red-400'}`}
           >
             {message}
           </p>
@@ -62,7 +53,7 @@ export default function NewsletterForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="btn-forest min-h-[48px] shrink-0 disabled:cursor-not-allowed disabled:opacity-70"
+        className="btn-gold shrink-0 disabled:opacity-70"
       >
         {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
       </button>

@@ -102,13 +102,13 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
 
   const inputClass = (hasError: boolean) =>
     cn(
-      'w-full rounded-xl border bg-cream px-4 py-3 text-ink transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20',
-      hasError ? 'border-red-400' : 'border-border'
+      'w-full border border-border bg-stone px-4 py-3.5 text-ink transition-colors focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold',
+      hasError ? 'border-red-500' : ''
     )
 
   return (
-    <section id="contact" className="section-padding relative bg-parchment">
-      <div className="container relative z-10">
+    <section id="contact" className="section-pad bg-stone-dark">
+      <div className="container-editorial">
         {!hideHeader && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -117,19 +117,19 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
             transition={{ duration: 0.4 }}
             className="mb-16 max-w-2xl"
           >
-            <p className="section-eyebrow mb-4">Contact</p>
-            <h2 className="section-title">Get in touch</h2>
-            <p className="mt-5 text-lg leading-relaxed text-ink-muted">{siteContent.contact.intro}</p>
+            <p className="label-gold mb-6">Contact</p>
+            <h2 className="headline-section">Get in touch</h2>
+            <p className="body-lead mt-6">{siteContent.contact.intro}</p>
           </motion.div>
         )}
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.4 }}
-            className="editorial-card"
+            className="border border-border bg-stone p-8 md:p-10"
           >
             <form onSubmit={handleSubmit} className="space-y-5">
               {formStatus === 'success' && (
@@ -245,7 +245,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn-primary flex w-full cursor-pointer justify-center disabled:cursor-not-allowed disabled:opacity-50"
+                className="btn-gold flex w-full cursor-pointer justify-center disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>Sending...</>
@@ -265,10 +265,10 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.4, delay: 0.08 }}
-            className="rounded-2xl border border-border bg-forest p-8 text-cream md:p-10"
+            className="bg-midnight p-8 text-stone md:p-10"
           >
-            <h3 className="mb-8 font-display text-xl font-medium">Contact Information</h3>
-            <div className="space-y-5">
+            <h3 className="mb-10 font-display text-2xl font-medium">Contact Information</h3>
+            <div className="space-y-6">
               {contactInfo.map((info) => {
                 const Wrapper = info.link ? 'a' : 'div'
                 const wrapperProps = info.link
@@ -279,32 +279,22 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                     key={info.title}
                     {...wrapperProps}
                     className={cn(
-                      'flex items-start gap-4 rounded-xl p-3 transition-colors',
-                      info.link ? 'cursor-pointer hover:bg-cream/5' : ''
+                      'block border-b border-stone/10 pb-6 transition-colors',
+                      info.link ? 'cursor-pointer hover:text-gold-light' : ''
                     )}
                   >
-                    <div className="flex shrink-0 rounded-full bg-cream/10 p-2.5">
-                      <info.icon className="h-5 w-5 text-terracotta-light" aria-hidden />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-cream/90">{info.title}</h4>
-                      <p className="mt-0.5 text-[15px] leading-relaxed text-cream/70">{info.value}</p>
-                    </div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-light">
+                      {info.title}
+                    </p>
+                    <p className="mt-2 text-[15px] leading-relaxed text-stone/80">{info.value}</p>
                   </Wrapper>
                 )
               })}
             </div>
-            <div className="mt-8 border-t border-cream/15 pt-6">
-              <Link
-                href={mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-arrow text-terracotta-light hover:text-cream"
-              >
-                View on Map
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+            <Link href={mapUrl} target="_blank" rel="noopener noreferrer" className="link-gold mt-8 !text-gold-light">
+              View on Map
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </motion.div>
         </div>
       </div>

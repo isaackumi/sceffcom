@@ -1,85 +1,30 @@
 import { siteContent } from '@/data/content'
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin } from 'lucide-react'
 import Link from 'next/link'
 import NewsletterForm from './NewsletterForm'
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-border bg-parchment">
-      <div className="grain-overlay" aria-hidden />
-      <div className="container relative z-10 py-16 sm:py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-4">
-            <p className="font-display text-2xl font-medium text-ink">{siteContent.meta.brandName}</p>
-            <p className="mt-2 text-sm font-medium text-terracotta">{siteContent.meta.brandTagline}</p>
-            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-muted">
+    <footer className="border-t border-border bg-midnight text-stone">
+      <div className="container-editorial py-16 md:py-20">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+          <div className="md:col-span-5">
+            <p className="font-display text-3xl font-light text-stone">SCEFFCOM</p>
+            <p className="mt-1 text-sm font-semibold uppercase tracking-[0.25em] text-gold">Consult</p>
+            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-stone/60">
               {siteContent.footer.description}
             </p>
-            <div className="mt-6 flex gap-2" role="list">
-              {siteContent.contact.social.facebook && (
-                <a
-                  href={siteContent.contact.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow us on Facebook"
-                  className="flex min-h-[40px] min-w-[40px] cursor-pointer items-center justify-center rounded-full border border-border text-ink-muted transition-colors hover:border-forest hover:bg-forest hover:text-cream"
-                >
-                  <Facebook className="h-4 w-4" />
-                </a>
-              )}
-              {siteContent.contact.social.twitter && (
-                <a
-                  href={siteContent.contact.social.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow us on Twitter"
-                  className="flex min-h-[40px] min-w-[40px] cursor-pointer items-center justify-center rounded-full border border-border text-ink-muted transition-colors hover:border-forest hover:bg-forest hover:text-cream"
-                >
-                  <Twitter className="h-4 w-4" />
-                </a>
-              )}
-              {siteContent.contact.social.instagram && (
-                <a
-                  href={siteContent.contact.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow us on Instagram"
-                  className="flex min-h-[40px] min-w-[40px] cursor-pointer items-center justify-center rounded-full border border-border text-ink-muted transition-colors hover:border-forest hover:bg-forest hover:text-cream"
-                >
-                  <Instagram className="h-4 w-4" />
-                </a>
-              )}
-              {siteContent.contact.social.linkedin && (
-                <a
-                  href={siteContent.contact.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow us on LinkedIn"
-                  className="flex min-h-[40px] min-w-[40px] cursor-pointer items-center justify-center rounded-full border border-border text-ink-muted transition-colors hover:border-forest hover:bg-forest hover:text-cream"
-                >
-                  <Linkedin className="h-4 w-4" />
-                </a>
-              )}
-              {siteContent.contact.social.youtube && (
-                <a
-                  href={siteContent.contact.social.youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Subscribe on YouTube"
-                  className="flex min-h-[40px] min-w-[40px] cursor-pointer items-center justify-center rounded-full border border-border text-ink-muted transition-colors hover:border-forest hover:bg-forest hover:text-cream"
-                >
-                  <Youtube className="h-4 w-4" />
-                </a>
-              )}
-            </div>
           </div>
 
-          <div className="lg:col-span-2">
-            <h4 className="mb-5 text-xs font-semibold uppercase tracking-widest text-ink-faint">Navigate</h4>
+          <div className="md:col-span-2">
+            <p className="label-gold mb-5 !text-gold-light">Navigate</p>
             <ul className="space-y-3">
               {siteContent.footer.quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-[15px] font-medium text-ink-muted transition-colors hover:text-terracotta">
+                  <Link
+                    href={link.href}
+                    className="text-sm text-stone/70 transition-colors hover:text-gold-light"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -87,12 +32,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h4 className="mb-5 text-xs font-semibold uppercase tracking-widest text-ink-faint">Programs</h4>
+          <div className="md:col-span-2">
+            <p className="label-gold mb-5 !text-gold-light">Programs</p>
             <ul className="space-y-3">
               {siteContent.footer.services.map((service) => (
                 <li key={service.name}>
-                  <Link href={service.href} className="text-[15px] font-medium text-ink-muted transition-colors hover:text-terracotta">
+                  <Link
+                    href={service.href}
+                    className="text-sm text-stone/70 transition-colors hover:text-gold-light"
+                  >
                     {service.name}
                   </Link>
                 </li>
@@ -100,37 +48,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h4 className="mb-5 text-xs font-semibold uppercase tracking-widest text-ink-faint">Reach us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-terracotta" />
-                <p className="text-[15px] leading-relaxed text-ink-muted">{siteContent.contact.location}</p>
+          <div className="md:col-span-3">
+            <p className="label-gold mb-5 !text-gold-light">Reach us</p>
+            <ul className="space-y-4 text-sm text-stone/70">
+              <li className="flex gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                <span>{siteContent.contact.location}</span>
               </li>
-              <li className="flex items-start gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-terracotta" />
+              <li className="flex gap-3">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                 <div className="space-y-1">
-                  {siteContent.contact.mobile.map((mobile) => (
-                    <a
-                      key={mobile}
-                      href={`tel:${mobile.replace(/\s/g, '')}`}
-                      className="block cursor-pointer text-[15px] font-medium text-ink-muted transition-colors hover:text-terracotta"
-                    >
-                      {mobile}
+                  {siteContent.contact.mobile.map((m) => (
+                    <a key={m} href={`tel:${m.replace(/\s/g, '')}`} className="block hover:text-gold-light">
+                      {m}
                     </a>
                   ))}
                 </div>
               </li>
-              <li className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-terracotta" />
+              <li className="flex gap-3">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                 <div className="space-y-1">
-                  {siteContent.contact.emails.map((email) => (
-                    <a
-                      key={email}
-                      href={`mailto:${email}`}
-                      className="block cursor-pointer text-[15px] font-medium text-ink-muted transition-colors hover:text-terracotta"
-                    >
-                      {email}
+                  {siteContent.contact.emails.map((e) => (
+                    <a key={e} href={`mailto:${e}`} className="block hover:text-gold-light">
+                      {e}
                     </a>
                   ))}
                 </div>
@@ -139,28 +79,24 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="editorial-divider my-12" />
+        <div className="my-12 h-px bg-stone/10" />
 
-        <div className="max-w-xl">
-          <h4 className="font-display text-lg font-medium text-ink">Stay updated</h4>
-          <p className="mt-2 text-[15px] text-ink-muted">
-            Subscribe for program updates, workshops, and language initiatives.
-          </p>
+        <div className="max-w-lg">
+          <p className="font-display text-xl text-stone">Stay updated</p>
+          <p className="mt-2 text-sm text-stone/60">Program updates, workshops, and language initiatives.</p>
           <div className="mt-5">
             <NewsletterForm />
           </div>
         </div>
 
-        <div className="editorial-divider my-10" />
-
-        <div className="flex flex-col items-center justify-between gap-4 text-sm text-ink-faint sm:flex-row">
-          <p>© {new Date().getFullYear()} {siteContent.meta.orgLegalName}. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="font-medium transition-colors hover:text-terracotta">
-              Privacy Policy
+        <div className="mt-12 flex flex-col gap-4 border-t border-stone/10 pt-8 text-sm text-stone/50 sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} {siteContent.meta.orgLegalName}</p>
+          <div className="flex gap-8">
+            <Link href="/privacy" className="hover:text-gold-light">
+              Privacy
             </Link>
-            <Link href="/terms" className="font-medium transition-colors hover:text-terracotta">
-              Terms of Service
+            <Link href="/terms" className="hover:text-gold-light">
+              Terms
             </Link>
           </div>
         </div>

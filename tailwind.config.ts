@@ -9,97 +9,90 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        parchment: {
-          DEFAULT: '#F4F0E6',
-          dark: '#E8E2D4',
+        midnight: {
+          DEFAULT: '#0B1628',
+          light: '#152238',
+          dark: '#060D18',
         },
-        cream: '#FDFBF7',
-        ink: {
-          DEFAULT: '#1C2B22',
-          muted: '#4A5C52',
-          faint: '#6B7D73',
-        },
-        forest: {
-          DEFAULT: '#1A3C34',
-          light: '#2D5A4E',
-          dark: '#0F2620',
-          muted: '#3D6B5E',
-        },
-        terracotta: {
-          DEFAULT: '#C15F3C',
-          light: '#D4785A',
-          dark: '#9E4A2E',
-        },
-        sage: {
-          DEFAULT: '#E8EDE6',
-          dark: '#D5DDD2',
+        stone: {
+          DEFAULT: '#F7F4EE',
+          dark: '#EDE8DF',
         },
         gold: {
-          DEFAULT: '#9A7B2F',
-          light: '#B8953D',
+          DEFAULT: '#B8860B',
+          light: '#D4A017',
+          dark: '#8B6914',
+          faint: 'rgba(184, 134, 11, 0.12)',
         },
-        border: {
-          DEFAULT: '#D4CFC4',
-          dark: '#B8B2A4',
+        slate: {
+          DEFAULT: '#4A5D73',
+          light: '#6B7D91',
+          faint: '#8E9DAD',
         },
-        // Legacy aliases mapped to new palette for gradual migration
+        ink: '#0C1222',
+        // Legacy aliases
         brand: {
-          ink: '#1C2B22',
-          paper: '#FDFBF7',
-          sand: '#F4F0E6',
-          mist: '#E8EDE6',
-          clay: '#C15F3C',
+          ink: '#0C1222',
+          paper: '#F7F4EE',
+          sand: '#EDE8DF',
+          mist: '#F7F4EE',
+          clay: '#B8860B',
         },
         primary: {
-          50: '#F0F5F3',
-          100: '#D9E8E3',
-          200: '#B3D1C7',
-          300: '#7AADA0',
-          400: '#4D8A7A',
-          500: '#2D5A4E',
-          600: '#1A3C34',
-          700: '#153029',
-          800: '#0F2620',
-          900: '#0A1A15',
+          50: '#F5F0E6',
+          100: '#E8DFD0',
+          200: '#D4C4A8',
+          300: '#B8860B',
+          400: '#A67809',
+          500: '#8B6914',
+          600: '#0B1628',
+          700: '#060D18',
+          800: '#040A12',
+          900: '#020508',
         },
         surface: {
-          DEFAULT: '#FDFBF7',
-          warm: '#F4F0E6',
-          light: '#FDFBF7',
+          DEFAULT: '#F7F4EE',
+          warm: '#EDE8DF',
+          light: '#F7F4EE',
         },
         link: {
-          DEFAULT: '#C15F3C',
-          hover: '#9E4A2E',
+          DEFAULT: '#B8860B',
+          hover: '#8B6914',
+        },
+        border: {
+          DEFAULT: '#D8D0C4',
+          dark: '#C4B9A8',
         },
       },
       fontFamily: {
-        sans: ['var(--font-source)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['var(--font-fraunces)', 'Georgia', 'serif'],
-        heading: ['var(--font-fraunces)', 'Georgia', 'serif'],
+        sans: ['var(--font-dm)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        heading: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
-      borderRadius: {
-        '4xl': '2rem',
+      fontSize: {
+        'display-xl': ['clamp(3.5rem,11vw,8rem)', { lineHeight: '0.92', letterSpacing: '-0.03em' }],
+        'display-lg': ['clamp(2.5rem,6vw,4.5rem)', { lineHeight: '1', letterSpacing: '-0.025em' }],
+      },
+      maxWidth: {
+        editorial: '72rem',
       },
       boxShadow: {
-        editorial: '0 1px 0 0 rgba(28, 43, 34, 0.06), 0 8px 32px -8px rgba(28, 43, 34, 0.12)',
-        card: '0 0 0 1px rgba(28, 43, 34, 0.08), 0 4px 20px -4px rgba(28, 43, 34, 0.1)',
+        lift: '0 24px 48px -12px rgba(11, 22, 40, 0.18)',
+        subtle: '0 1px 0 0 rgba(11, 22, 40, 0.06)',
       },
       animation: {
-        'fade-up': 'fadeUp 0.6s ease-out',
-        'fade-in': 'fadeIn 0.5s ease-out',
+        'line-grow': 'lineGrow 1.2s ease-out forwards',
+        'fade-up': 'fadeUp 0.7s ease-out forwards',
       },
       keyframes: {
+        lineGrow: {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-      },
-      backgroundImage: {
-        'grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E\")",
       },
     },
   },

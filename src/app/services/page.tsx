@@ -10,97 +10,83 @@ export default function ServicesPage() {
   const { services, about } = siteContent
 
   return (
-    <div className="min-h-screen bg-cream">
-      <PageHeader
-        eyebrow="Our Services"
-        title={services.pageTitle}
-        description={services.pageSubtitle}
-      />
-
+    <div className="min-h-screen bg-stone">
+      <PageHeader eyebrow="Our Services" title={services.pageTitle} description={services.pageSubtitle} />
       <Services hideHeader />
 
-      <section className="section-padding border-t border-border bg-cream">
-        <div className="container">
-          <p className="section-eyebrow mb-4">Training contexts</p>
-          <h2 className="font-display text-2xl font-medium text-ink sm:text-3xl">Sectors We Cover</h2>
-          <p className="mt-4 max-w-2xl text-ink-muted">{services.sectionIntro}</p>
-          <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="section-pad border-t border-border">
+        <div className="container-editorial">
+          <p className="label-gold mb-6">Training contexts</p>
+          <h2 className="headline-section">Sectors We Cover</h2>
+          <p className="body-lead mt-6 max-w-2xl">{services.sectionIntro}</p>
+          <ul className="mt-12 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
             {services.sectors.map((sector) => (
-              <li key={sector} className="rounded-xl border border-border bg-parchment px-5 py-4 text-[15px] text-ink-muted">
-                {sector}
-              </li>
+              <li key={sector} className="bg-stone p-6 text-[15px] text-slate">{sector}</li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="section-padding border-t border-border bg-sage">
-        <div className="container">
-          <p className="section-eyebrow mb-4">What we offer</p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {services.offerCategories.map((category) => (
-              <div key={category} className="editorial-card text-center md:text-left">
-                <p className="font-display text-lg font-medium text-ink">{category}</p>
-              </div>
+      <section className="section-pad border-t border-border bg-stone-dark">
+        <div className="container-editorial">
+          <p className="label-gold mb-8">What we offer</p>
+          <div className="grid gap-px bg-border md:grid-cols-3">
+            {services.offerCategories.map((c) => (
+              <div key={c} className="bg-stone-dark p-8 font-display text-xl text-midnight">{c}</div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding border-t border-border">
-        <div className="container">
-          <p className="section-eyebrow mb-4">{siteContent.meta.parentOrg}</p>
-          <h2 className="font-display text-2xl font-medium text-ink">{services.lwfActivities.title}</h2>
-          <div className="mt-10 space-y-6">
+      <section className="section-pad border-t border-border">
+        <div className="container-editorial">
+          <p className="label-gold mb-6">{siteContent.meta.parentOrg}</p>
+          <h2 className="headline-section">{services.lwfActivities.title}</h2>
+          <div className="mt-12 space-y-0">
             {services.lwfActivities.items.map((activity) => (
-              <article key={activity.title} className="rounded-2xl border border-border bg-parchment p-6 sm:p-8">
-                <h3 className="font-display text-xl font-medium text-ink">{activity.title}</h3>
+              <article key={activity.title} className="border-t border-border py-10">
+                <h3 className="font-display text-2xl text-midnight">{activity.title}</h3>
                 {'hashtags' in activity && activity.hashtags && (
-                  <p className="mt-2 text-sm font-medium text-terracotta">{activity.hashtags.join(' · ')}</p>
+                  <p className="mt-2 text-sm text-gold">{activity.hashtags.join(' · ')}</p>
                 )}
-                <p className="mt-3 text-[16px] leading-relaxed text-ink-muted">{activity.description}</p>
+                <p className="mt-4 max-w-2xl text-slate">{activity.description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding border-t border-border bg-forest text-cream">
-        <div className="container grid gap-12 lg:grid-cols-2">
+      <section className="section-pad border-t border-border bg-midnight text-stone">
+        <div className="container-editorial grid gap-16 lg:grid-cols-2">
           <div>
-            <p className="section-eyebrow mb-4 text-terracotta-light">{about.whoWeServe.title}</p>
-            <ul className="space-y-3">
+            <p className="label-gold mb-6 !text-gold-light">{about.whoWeServe.title}</p>
+            <ul className="space-y-3 text-stone/75">
               {about.whoWeServe.items.map((item) => (
-                <li key={item} className="text-[16px] text-cream/80">{item}</li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="section-eyebrow mb-4 text-terracotta-light">{about.approach.title}</p>
-            <p className="font-medium text-cream">{about.approach.languages}</p>
-            <ul className="mt-4 space-y-2 text-cream/80">
-              {about.approach.methods.map((method) => (
-                <li key={method}>{method}</li>
+            <p className="label-gold mb-6 !text-gold-light">{about.approach.title}</p>
+            <p className="text-stone">{about.approach.languages}</p>
+            <ul className="mt-4 space-y-2 text-stone/75">
+              {about.approach.methods.map((m) => (
+                <li key={m}>{m}</li>
               ))}
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="section-padding border-t border-border bg-parchment text-center">
-        <div className="container max-w-xl">
-          <h2 className="font-display text-2xl font-medium text-ink">Ready to get started?</h2>
-          <p className="mt-4 text-ink-muted">
-            Contact us to discuss communication training, speaking-club outreach, or consultancy.
-          </p>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link href="/contact" className="btn-primary">
-              Get in Touch
-              <ArrowRight className="h-4 w-4" />
+      <section className="section-pad border-t border-border text-center">
+        <div className="container-editorial max-w-xl">
+          <h2 className="headline-section">Ready to get started?</h2>
+          <p className="body-lead mt-6">Contact us to discuss training, outreach, or consultancy.</p>
+          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link href="/contact" className="btn-gold">
+              Get in Touch <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/about" className="btn-secondary">
-              About us
-            </Link>
+            <Link href="/about" className="btn-outline">About us</Link>
           </div>
         </div>
       </section>

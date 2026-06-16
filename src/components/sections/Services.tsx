@@ -5,65 +5,52 @@ import { ArrowRight } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 
-const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }
-const stagger = { visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } } }
-
 export default function Services({ hideHeader }: { hideHeader?: boolean } = {}) {
   const reduceMotion = useReducedMotion()
   const activities = siteContent.about.activities.items
 
   return (
-    <section id="services" className="section-padding relative bg-sage">
-      <div className="grain-overlay" aria-hidden />
-      <div className="container relative z-10">
+    <section id="services" className="section-pad bg-midnight text-stone">
+      <div className="container-editorial">
         {!hideHeader && (
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            variants={stagger}
-            className="mb-16 max-w-2xl"
-          >
-            <motion.p variants={fadeUp} className="section-eyebrow mb-4">
-              Programs
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="section-title">
-              What We Offer
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 text-lg leading-relaxed text-ink-muted">
+          <div className="mb-16 max-w-2xl md:mb-24">
+            <p className="label-gold mb-6 !text-gold-light">Programs</p>
+            <h2 className="font-display text-display-lg font-light text-stone">What We Offer</h2>
+            <p className="mt-6 text-lg leading-relaxed text-stone/70">
               {siteContent.about.activities.subtitle}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         )}
 
-        <motion.div
-          className="space-y-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
-          variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-        >
+        <div>
           {activities.map((item, i) => (
             <motion.article
               key={item.title}
-              variants={fadeUp}
-              transition={reduceMotion ? { duration: 0.3 } : undefined}
-              className="group grid gap-6 rounded-2xl border border-border bg-cream p-6 shadow-card transition-shadow hover:shadow-editorial md:grid-cols-[auto_1fr] md:items-start md:gap-10 md:p-8"
+              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="grid gap-6 border-t border-stone/15 py-10 md:grid-cols-[5rem_1fr_auto] md:items-start md:gap-10 md:py-14"
             >
-              <span className="program-number">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-display text-5xl font-light text-gold/30 md:text-6xl">
+                {String(i + 1).padStart(2, '0')}
+              </span>
               <div>
-                <h3 className="font-display text-xl font-medium text-ink sm:text-2xl">{item.title}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink-muted sm:text-base">
+                <h3 className="font-display text-2xl font-medium text-stone md:text-3xl">{item.title}</h3>
+                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-stone/65 md:text-base">
                   {item.description}
                 </p>
-                <Link href="/contact" className="link-arrow mt-5 text-sm">
-                  Enquire about this program
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
+              <Link
+                href="/contact"
+                className="link-gold shrink-0 self-start !text-gold-light hover:!text-stone"
+              >
+                Enquire
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

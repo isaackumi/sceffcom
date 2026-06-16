@@ -6,112 +6,87 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-}
-const stagger = { visible: { transition: { staggerChildren: 0.1 } } }
-
 export default function About() {
   const { about, teamMembers } = siteContent
   const reduceMotion = useReducedMotion()
-  const motionProps = reduceMotion ? {} : { variants: fadeUp }
 
   return (
-    <section id="about" className="section-padding relative bg-cream">
-      <div className="container">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-          className="mb-16 grid gap-12 lg:grid-cols-2 lg:items-center"
-        >
-          <div>
-            <motion.p variants={fadeUp} className="section-eyebrow mb-4">
-              Who we are
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="section-title text-balance">
-              {siteContent.meta.brandTagline}
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mt-6 text-lg leading-relaxed text-ink-muted">
-              {about.paragraphs[0]}
-            </motion.p>
-            <motion.div variants={fadeUp} className="mt-8">
-              <Link href="/about" className="link-arrow">
-                Read our full story
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
-          </div>
+    <section id="about" className="section-pad bg-stone-dark">
+      <div className="container-editorial">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5"
+          >
+            <p className="label-gold mb-6">Who we are</p>
+            <h2 className="headline-section text-balance">{siteContent.meta.brandTagline}</h2>
+            <p className="body-lead mt-8">{about.paragraphs[0]}</p>
+            <Link href="/about" className="link-gold mt-8">
+              Read our full story
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
 
           <motion.div
-            variants={fadeUp}
-            className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border"
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-7"
           >
-            <Image
-              src={teamMembers.founder.image}
-              alt={teamMembers.founder.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+            <div className="relative aspect-[5/4] overflow-hidden">
+              <Image
+                src={teamMembers.founder.image}
+                alt={teamMembers.founder.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 55vw"
+              />
+            </div>
+            <p className="pull-quote mt-10 max-w-xl">
+              &ldquo;Communication is not one-size-fits-all. What works in a boardroom differs from a palace, a
+              courtroom, or the media space.&rdquo;
+            </p>
           </motion.div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
-          variants={stagger}
-          className="mb-16 grid gap-6 md:grid-cols-2"
-        >
-          <motion.article variants={fadeUp} className="editorial-card">
-            <p className="section-eyebrow mb-3">Mission</p>
-            <h3 className="font-display text-xl font-medium text-ink">{about.mission.title}</h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">{about.mission.intro}</p>
-            <ul className="mt-4 space-y-2">
+        <div className="hairline my-16 md:my-20" />
+
+        <div className="grid gap-12 md:grid-cols-2">
+          <div>
+            <p className="label-gold mb-4">Mission</p>
+            <p className="mb-4 font-medium text-midnight">{about.mission.intro}</p>
+            <ul className="space-y-3">
               {about.mission.points.map((point, i) => (
-                <li key={i} className="flex gap-3 text-[15px] leading-relaxed text-ink-muted">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-terracotta" aria-hidden />
+                <li key={i} className="flex gap-4 text-[15px] leading-relaxed text-slate">
+                  <span className="mt-2 h-px w-6 shrink-0 bg-gold" aria-hidden />
                   {point}
                 </li>
               ))}
             </ul>
-          </motion.article>
-
-          <motion.article variants={fadeUp} className="editorial-card bg-sage">
-            <p className="section-eyebrow mb-3">Vision</p>
-            <h3 className="font-display text-xl font-medium text-ink">{about.vision.title}</h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">{about.vision.text}</p>
-          </motion.article>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
-          variants={stagger}
-        >
-          <motion.p variants={fadeUp} className="section-eyebrow mb-4">
-            {about.objectives.title}
-          </motion.p>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {about.objectives.items.map((item, i) => (
-              <motion.div
-                key={i}
-                {...motionProps}
-                variants={fadeUp}
-                className="flex gap-4 rounded-xl border border-border bg-parchment p-5"
-              >
-                <span className="font-display text-2xl font-light text-terracotta">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <p className="text-[15px] leading-relaxed text-ink-muted">{item}</p>
-              </motion.div>
-            ))}
           </div>
-        </motion.div>
+          <div>
+            <p className="label-gold mb-4">Vision</p>
+            <p className="text-[15px] leading-relaxed text-slate">{about.vision.text}</p>
+          </div>
+        </div>
+
+        <div className="hairline my-16 md:my-20" />
+
+        <p className="label-gold mb-10">{about.objectives.title}</p>
+        <div className="grid gap-px bg-border md:grid-cols-2">
+          {about.objectives.items.map((item, i) => (
+            <div key={i} className="bg-stone-dark p-8 md:p-10">
+              <span className="font-display text-3xl font-light text-gold/50">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <p className="mt-4 text-[15px] leading-relaxed text-slate">{item}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

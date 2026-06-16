@@ -19,6 +19,6 @@ When changing or building **pages, layout, or components**:
 
 4. **21st.dev** — Dev toolbar: `@21st-extension/toolbar-next` + VS Code extension `21st-dev.21st-extension`. Run `npm run dev`, select elements, send context to the agent. Hero region: `#hero__21st`.
 
-5. **Brand** — SCEFFCOM CONSULT: editorial institute aesthetic. Forest green + parchment + terracotta accents. Avoid amber/yellow SaaS templates and dark carousel heroes.
+5. **Brand** — SCEFFCOM CONSULT: midnight institute catalogue. Navy #0B1628 + stone paper + antique gold. Cormorant Garamond + DM Sans. Editorial magazine layout — no pill badges, grain overlays, or generic AI card grids.
 
 6. **Content** — Edit copy in `src/data/content.ts` only; use `siteContent.meta` / `src/lib/site.ts` for URLs and nav labels.

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Fraunces, Source_Sans_3 } from 'next/font/google'
+import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import './globals.css'
 import { siteContent } from '@/data/content'
 import { siteUrl } from '@/lib/site'
@@ -8,16 +8,18 @@ import Footer from '@/components/sections/Footer'
 import JsonLd from '@/components/JsonLd'
 import { DevTwentyFirstToolbar } from '@/components/dev/DevTwentyFirstToolbar'
 
-const fraunces = Fraunces({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-cormorant',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 })
 
-const sourceSans = Source_Sans_3({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-source',
+  variable: '--font-dm',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -35,14 +37,7 @@ export const metadata: Metadata = {
     siteName: siteContent.meta.title,
     title: siteContent.meta.title,
     description: siteContent.meta.description,
-    images: [
-      {
-        url: '/images/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: siteContent.meta.title,
-      },
-    ],
+    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: siteContent.meta.title }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -50,30 +45,16 @@ export const metadata: Metadata = {
     description: siteContent.meta.description,
     images: ['/images/og-image.jpg'],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  robots: { index: true, follow: true },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${sourceSans.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
       <head>
         <link rel="icon" href="/images/logo/nananom.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/images/logo/nananom.jpg" />
-        <meta name="theme-color" content="#1A3C34" />
+        <meta name="theme-color" content="#0B1628" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className="font-sans antialiased">
@@ -81,17 +62,15 @@ export default function RootLayout({
         <JsonLd />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-forest focus:px-4 focus:py-3 focus:font-semibold focus:text-cream focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-terracotta"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-midnight focus:px-4 focus:py-3 focus:font-semibold focus:text-stone focus:outline-none focus:ring-2 focus:ring-gold"
         >
           Skip to main content
         </a>
-        <div className="min-h-screen bg-cream font-sans text-ink antialiased">
-          <Navigation />
-          <div id="main-content" tabIndex={-1}>
-            {children}
-          </div>
-          <Footer />
+        <Navigation />
+        <div id="main-content" tabIndex={-1}>
+          {children}
         </div>
+        <Footer />
       </body>
     </html>
   )
