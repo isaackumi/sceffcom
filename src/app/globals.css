@@ -2,113 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Bagoss Condensed */
-@font-face {
-  font-family: 'BagossCondensedFont';
-  src: url('/fonts/bagoss-font-family/BagossCondensed-TRIAL-Thin.otf') format('opentype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'BagossCondensedFont';
-  src: url('/fonts/bagoss-font-family/BagossCondensed-TRIAL-Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'BagossCondensedFont';
-  src: url('/fonts/bagoss-font-family/BagossCondensed-TRIAL-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'BagossCondensedFont';
-  src: url('/fonts/bagoss-font-family/BagossCondensed-TRIAL-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'BagossCondensedFont';
-  src: url('/fonts/bagoss-font-family/BagossCondensed-TRIAL-SemiBold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'BagossCondensedFont';
-  src: url('/fonts/bagoss-font-family/BagossCondensed-TRIAL-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 47.9 95.8% 53.1%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 47.9 95.8% 53.1%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 47.9 95.8% 53.1%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 47.9 95.8% 53.1%;
+    --background: 42 33% 93%;
+    --foreground: 150 22% 14%;
+    --card: 40 33% 99%;
+    --card-foreground: 150 22% 14%;
+    --primary: 165 40% 17%;
+    --primary-foreground: 42 33% 96%;
+    --secondary: 108 14% 92%;
+    --secondary-foreground: 150 22% 14%;
+    --muted: 108 14% 92%;
+    --muted-foreground: 150 10% 40%;
+    --accent: 16 54% 49%;
+    --accent-foreground: 40 33% 99%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 16% 80%;
+    --input: 38 16% 80%;
+    --ring: 165 40% 17%;
+    --radius: 0.75rem;
   }
 
   * {
-    @apply border-[hsl(var(--border))];
+    @apply border-border;
   }
 
   body {
-    @apply bg-white text-neutral-900 font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-cream text-ink font-sans antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: BagossCondensedFont, ui-sans-serif, system-ui, sans-serif;
-    letter-spacing: -0.03em;
+  h1, h2, h3, h4 {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
 
   html {
@@ -116,23 +46,18 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
-
-    html {
-      scroll-behavior: auto;
-    }
+    html { scroll-behavior: auto; }
   }
 }
 
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-6xl px-5 sm:px-8 lg:px-10;
   }
 
   .section-padding {
@@ -140,104 +65,64 @@
   }
 
   .section-eyebrow {
-    @apply text-[11px] font-bold uppercase tracking-[0.22em] text-amber-900;
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-terracotta;
   }
 
-  .gradient-bg {
-    background: linear-gradient(135deg, #312e81 0%, #4f46e5 45%, #3730a3 100%);
-  }
-
-  .glass-morphism {
-    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg;
-  }
-
-  /* Navbar — frosted glass */
-  .glass-nav-light {
-    @apply bg-white/45 backdrop-blur-2xl backdrop-saturate-150 border border-white/60;
-    box-shadow:
-      0 8px 32px rgba(49, 46, 129, 0.1),
-      0 1px 0 rgba(255, 255, 255, 0.85) inset,
-      0 0 0 1px rgba(255, 255, 255, 0.35) inset;
-  }
-
-  .glass-nav-dark {
-    @apply bg-white/[0.13] backdrop-blur-2xl backdrop-saturate-150 border border-white/30;
-    box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.28),
-      0 1px 0 rgba(255, 255, 255, 0.22) inset,
-      0 0 0 1px rgba(255, 255, 255, 0.12) inset;
-  }
-
-  /* Content panels — light sections */
-  .glass-card {
-    @apply bg-white/55 backdrop-blur-xl backdrop-saturate-150 border border-white/70;
-    box-shadow:
-      0 4px 24px rgba(49, 46, 129, 0.06),
-      0 1px 0 rgba(255, 255, 255, 0.9) inset;
-  }
-
-  /* Plain CSS only — avoids @apply + opacity utilities (Turbopack-safe) */
-  .glass-hero-pill {
-    background-color: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    -webkit-backdrop-filter: blur(40px) saturate(1.5);
-    backdrop-filter: blur(40px) saturate(1.5);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      0 1px 0 rgba(255, 255, 255, 0.25) inset;
-  }
-
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 via-brand-clay to-primary-500 bg-clip-text text-transparent;
+  .section-title {
+    @apply font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-[2.75rem];
   }
 
   .btn-primary {
-    @apply inline-flex cursor-pointer items-center justify-center px-6 py-3 border-2 border-brand-ink/20 text-base font-bold rounded-sm text-brand-ink bg-primary-500 hover:bg-primary-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-clay transition-all duration-200 ease-out shadow-md hover:shadow-lg;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-terracotta px-7 py-3.5 text-sm font-semibold text-cream shadow-sm transition-all duration-200 hover:bg-terracotta-dark hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex cursor-pointer items-center justify-center px-6 py-3 border-2 border-brand-ink text-base font-bold rounded-sm text-brand-ink bg-brand-paper hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-clay transition-all duration-200 ease-out;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border-2 border-ink/20 bg-transparent px-7 py-3.5 text-sm font-semibold text-ink transition-all duration-200 hover:border-forest hover:bg-forest/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2;
   }
 
-  .card-hover {
-    @apply transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-0.5 hover:border-brand-clay/40;
+  .btn-forest {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-forest px-7 py-3.5 text-sm font-semibold text-cream transition-all duration-200 hover:bg-forest-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2;
   }
 
-  .parallax {
-    transform: translateZ(0);
-    will-change: transform;
+  .link-arrow {
+    @apply inline-flex cursor-pointer items-center gap-2 font-semibold text-terracotta transition-colors hover:text-terracotta-dark;
   }
 
-  .stylish-title {
-    font-family: BagossCondensedFont, ui-sans-serif, system-ui, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.04em;
+  .editorial-card {
+    @apply rounded-2xl border border-border bg-cream p-6 shadow-card transition-shadow duration-300 hover:shadow-editorial lg:p-8;
   }
 
-  .hero-title {
-    font-family: BagossCondensedFont, ui-sans-serif, system-ui, sans-serif;
-    font-weight: 600;
-    font-size: clamp(2.35rem, 6vw, 3.85rem);
-    letter-spacing: -0.045em;
-    line-height: 1.02;
+  .editorial-divider {
+    @apply h-px w-full bg-border;
   }
 
-  /* Long multilingual title — slightly lighter Bagoss */
-  .hero-title-medium {
-    font-family: BagossCondensedFont, ui-sans-serif, system-ui, sans-serif;
+  .text-link {
+    @apply font-medium text-terracotta underline-offset-4 transition-colors hover:text-terracotta-dark hover:underline;
+  }
+
+  .hero-display {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
     font-weight: 500;
-    font-size: clamp(1.65rem, 4vw, 2.65rem);
     letter-spacing: -0.03em;
-    line-height: 1.2;
+    line-height: 1.05;
   }
 
-  /* Yellow banner with jagged bottom edge */
-  .banner-jagged {
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 92% 100%, 80% 92%, 60% 100%, 40% 92%, 20% 100%, 8% 90%, 0 100%);
+  .page-hero-title {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
   }
 
-  .banner-jagged-sm {
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 85% 95%, 70% 100%, 50% 92%, 30% 100%, 15% 95%, 5% 100%, 0 95%);
+  .program-number {
+    font-family: var(--font-fraunces), Georgia, serif;
+    @apply text-5xl font-light leading-none text-forest/20;
+  }
+
+  .grain-overlay {
+    @apply pointer-events-none absolute inset-0 bg-grain opacity-60;
   }
 }
 
@@ -245,55 +130,18 @@
   .text-balance {
     text-wrap: balance;
   }
-
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-
-  .animation-delay-800 {
-    animation-delay: 800ms;
-  }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f5f5f4;
+  background: #F4F0E6;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #a3a3a3;
-  border-radius: 4px;
+  background: #B8B2A4;
+  border-radius: 3px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #737373;
-}
-
-/* Loading animation */
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: .5;
-  }
-}
-
-.pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: #9A9488;
 }

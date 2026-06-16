@@ -4,4 +4,4 @@
 - **URLs:** `src/lib/site.ts` + `NEXT_PUBLIC_SITE_URL`.
 - **UI:** `.cursor/rules/sceffcom-nextjs-ui.mdc`; run `./scripts/install-ui-skill.sh` for design-system skill.
 - **21st:** dev toolbar in `src/components/dev/DevTwentyFirstToolbar.tsx`; extension `21st-dev.21st-extension`.
-- **Fonts:** Bagoss (headings) in `public/fonts/` + `globals.css`; system sans for body.
+- **Fonts:** Fraunces (headings) via `next/font/google` + Source Sans 3 for body; see `layout.tsx` + `globals.css`.

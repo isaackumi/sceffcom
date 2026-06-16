@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Fraunces, Source_Sans_3 } from 'next/font/google'
 import './globals.css'
 import { siteContent } from '@/data/content'
 import { siteUrl } from '@/lib/site'
@@ -6,6 +7,18 @@ import Navigation from '@/components/sections/Navigation'
 import Footer from '@/components/sections/Footer'
 import JsonLd from '@/components/JsonLd'
 import { DevTwentyFirstToolbar } from '@/components/dev/DevTwentyFirstToolbar'
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+})
+
+const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  variable: '--font-source',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -56,25 +69,27 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${fraunces.variable} ${sourceSans.variable}`}>
       <head>
         <link rel="icon" href="/images/logo/nananom.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/images/logo/nananom.jpg" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#1A3C34" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="antialiased font-sans">
+      <body className="font-sans antialiased">
         <DevTwentyFirstToolbar />
         <JsonLd />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-neutral-950 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-forest focus:px-4 focus:py-3 focus:font-semibold focus:text-cream focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-terracotta"
         >
           Skip to main content
         </a>
-        <div className="min-h-screen bg-white font-sans antialiased text-neutral-900">
+        <div className="min-h-screen bg-cream font-sans text-ink antialiased">
           <Navigation />
-          <div id="main-content" tabIndex={-1}>{children}</div>
+          <div id="main-content" tabIndex={-1}>
+            {children}
+          </div>
           <Footer />
         </div>
       </body>

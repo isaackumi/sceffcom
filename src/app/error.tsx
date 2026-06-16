@@ -16,30 +16,19 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-surface">
-      <div className="max-w-md w-full text-center">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-100 flex items-center justify-center">
-          <AlertCircle className="w-8 h-8 text-red-600" />
+    <div className="flex min-h-screen flex-col items-center justify-center bg-parchment px-4 py-20">
+      <div className="w-full max-w-md text-center">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-terracotta/10">
+          <AlertCircle className="h-8 w-8 text-terracotta" />
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          Something went wrong
-        </h1>
-        <p className="text-gray-600 mb-8">
-          We encountered an unexpected error. Please try again.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            type="button"
-            onClick={reset}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary-500 text-white font-bold hover:bg-primary-600 transition-colors"
-          >
-            <RefreshCw className="w-5 h-5" />
+        <h1 className="font-display text-2xl font-medium text-ink sm:text-3xl">Something went wrong</h1>
+        <p className="mt-4 text-ink-muted">We encountered an unexpected error. Please try again.</p>
+        <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <button type="button" onClick={reset} className="btn-primary justify-center">
+            <RefreshCw className="h-4 w-4" />
             Try again
           </button>
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-300 text-gray-700 font-bold hover:border-gray-400 hover:bg-gray-50 transition-colors"
-          >
+          <Link href="/" className="btn-secondary justify-center">
             Go to Home
           </Link>
         </div>

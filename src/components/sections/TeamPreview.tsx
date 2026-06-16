@@ -3,7 +3,7 @@
 import { siteContent } from '@/data/content'
 import Link from 'next/link'
 import Image from 'next/image'
-import { User, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 
 type PreviewMember = { name: string; role: string; image?: string | null; bio?: string }
@@ -16,92 +16,74 @@ export default function TeamPreview() {
     ...teamMembers.advisoryBoard.slice(0, 2).map((m) => ({ name: m.name, role: m.role, image: null })),
   ]
   const soloLead = previewMembers.length === 1
+  const member = previewMembers[0]
 
   return (
-    <section id="team-preview" className="relative overflow-hidden bg-neutral-50 py-24 lg:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_100%_30%,rgba(0,0,0,0.03),transparent)]" />
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="team-preview" className="section-padding relative bg-forest text-cream">
+      <div className="grain-overlay" aria-hidden />
+      <div
+        className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-terracotta/10 blur-3xl"
+        aria-hidden
+      />
+
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={reduceMotion ? { duration: 0.45 } : { type: 'spring', stiffness: 380, damping: 32 }}
-          className="mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-12 max-w-xl"
         >
-          <p className="section-eyebrow mb-3">Team</p>
-          <h2 className="mb-6 max-w-3xl text-balance font-heading text-3xl font-semibold text-neutral-950 sm:text-4xl lg:text-5xl">
+          <p className="section-eyebrow mb-4 text-terracotta-light">Leadership</p>
+          <h2 className="font-display text-3xl font-medium text-cream sm:text-4xl">
             {soloLead ? 'Meet Our Team Lead' : 'Meet Our Team'}
           </h2>
-          <p className="max-w-2xl text-lg leading-relaxed text-neutral-700">{teamMembers.intro}</p>
-          {soloLead && (
-            <p className="mt-4 max-w-2xl text-[15px] italic leading-relaxed text-neutral-600">
-              {teamMembers.registeredNote}
-            </p>
-          )}
+          <p className="mt-4 text-lg leading-relaxed text-cream/75">{teamMembers.intro}</p>
         </motion.div>
 
-        <div className={`grid grid-cols-1 gap-6 ${soloLead ? 'mx-auto max-w-md' : 'md:grid-cols-3'}`}>
-          {previewMembers.map((member, i) => (
-            <motion.article
-              key={member.name}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-24px' }}
-              transition={
-                reduceMotion
-                  ? { duration: 0.4, delay: i * 0.05 }
-                  : { type: 'spring', stiffness: 360, damping: 30, delay: i * 0.07 }
-              }
-              whileHover={reduceMotion ? undefined : { y: -5, transition: { type: 'spring', stiffness: 400, damping: 26 } }}
-              className="overflow-hidden rounded-md border border-neutral-200 bg-white shadow-sm transition-shadow hover:shadow-md"
-            >
-              <div className="relative h-56 overflow-hidden bg-neutral-800">
-                {member.image ? (
-                  <Image src={member.image} alt={member.name} fill className="object-cover" />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-neutral-200">
-                    <User className="h-20 w-20 text-neutral-400" aria-hidden />
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/85 via-neutral-900/25 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-lg font-semibold text-white">{member.name}</h3>
-                  <p className="text-sm text-neutral-200">{member.role}</p>
-                </div>
-              </div>
-              <div className="border-t border-neutral-100 bg-white p-6">
-                {member.bio && (
-                  <p className="mb-4 line-clamp-3 text-[15px] leading-relaxed text-neutral-700">{member.bio}</p>
-                )}
-                <Link
-                  href="/team"
-                  className="inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-link transition-colors hover:text-link-hover"
-                >
-                  View Full Team
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={reduceMotion ? { duration: 0.4 } : { type: 'spring', stiffness: 380, damping: 32 }}
-          className="mt-12 text-center"
-        >
-          <motion.div whileHover={reduceMotion ? undefined : { scale: 1.02 }} whileTap={reduceMotion ? undefined : { scale: 0.98 }}>
-            <Link
-              href="/team"
-              className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-amber-700/30 bg-amber-500 px-8 py-3.5 font-bold text-neutral-950 shadow-sm transition-colors hover:bg-amber-400"
-            >
-              View Full Team
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+        {soloLead && member && (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="grid items-center gap-10 lg:grid-cols-[280px_1fr]"
+          >
+            <div className="relative mx-auto aspect-square w-full max-w-[280px] overflow-hidden rounded-2xl border border-cream/20">
+              {member.image && (
+                <Image src={member.image} alt={member.name} fill className="object-cover" sizes="280px" />
+              )}
+            </div>
+            <div>
+              <h3 className="font-display text-2xl font-medium text-cream sm:text-3xl">{member.name}</h3>
+              <p className="mt-2 font-medium text-terracotta-light">{member.role}</p>
+              {member.bio && (
+                <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-cream/80">{member.bio}</p>
+              )}
+              {teamMembers.registeredNote && (
+                <p className="mt-4 text-sm italic text-cream/60">{teamMembers.registeredNote}</p>
+              )}
+              <Link
+                href="/team"
+                className="mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-cream/10"
+              >
+                View full profile
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </motion.div>
-        </motion.div>
+        )}
+
+        {!soloLead && (
+          <div className="grid gap-6 md:grid-cols-3">
+            {previewMembers.map((m) => (
+              <article key={m.name} className="rounded-2xl border border-cream/15 bg-forest-light/50 p-6">
+                <h3 className="font-display text-lg font-medium">{m.name}</h3>
+                <p className="mt-1 text-sm text-cream/70">{m.role}</p>
+              </article>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

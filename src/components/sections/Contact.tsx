@@ -100,48 +100,38 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
     { icon: Phone, title: 'C.E.O. Contact', value: siteContent.contact.ceoContact, link: `tel:${siteContent.contact.ceoContact.replace(/\s/g, '')}` },
   ]
 
+  const inputClass = (hasError: boolean) =>
+    cn(
+      'w-full rounded-xl border bg-cream px-4 py-3 text-ink transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20',
+      hasError ? 'border-red-400' : 'border-border'
+    )
+
   return (
-    <section id="contact" className="relative overflow-hidden bg-neutral-50 py-24 font-sans text-neutral-900 lg:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgba(251,191,36,0.06)_0%,#fafafa_55%,transparent_100%)]" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section header */}
+    <section id="contact" className="section-padding relative bg-parchment">
+      <div className="container relative z-10">
         {!hideHeader && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={
-              reduceMotion
-                ? { duration: 0.35 }
-                : { type: 'spring', stiffness: 380, damping: 32 }
-            }
-            className="mb-16"
+            transition={{ duration: 0.4 }}
+            className="mb-16 max-w-2xl"
           >
-            <p className="section-eyebrow mb-3">Contact</p>
-            <h2 className="mb-6 max-w-3xl font-heading text-3xl font-semibold text-neutral-950 text-balance sm:text-4xl lg:text-5xl">
-              Get in touch
-            </h2>
-            <p className="max-w-2xl text-lg leading-relaxed text-neutral-700">
-              {siteContent.contact.intro}
-            </p>
+            <p className="section-eyebrow mb-4">Contact</p>
+            <h2 className="section-title">Get in touch</h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink-muted">{siteContent.contact.intro}</p>
           </motion.div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Form card */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={
-              reduceMotion
-                ? { duration: 0.4, delay: 0.05 }
-                : { type: 'spring', stiffness: 360, damping: 32, delay: 0.06 }
-            }
-            whileHover={reduceMotion ? undefined : { y: -2 }}
-            className="rounded-md border border-neutral-200 bg-white p-8 shadow-sm md:p-10 text-neutral-900"
+            transition={{ duration: 0.4 }}
+            className="editorial-card"
           >
-            <form onSubmit={handleSubmit} className="space-y-5 font-sans">
+            <form onSubmit={handleSubmit} className="space-y-5">
               {formStatus === 'success' && (
                 <div
                   role="status"
@@ -161,7 +151,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                 </div>
               )}
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-1">
+                <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-ink">
                   Your Name
                 </label>
                 <input
@@ -176,17 +166,15 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? 'name-error' : undefined}
                   required
-                  className={`w-full rounded-sm border bg-white px-4 py-3 transition-colors focus:border-blue-600 focus:ring-2 focus:ring-blue-500/25 ${
-                    errors.name ? 'border-red-500' : 'border-neutral-300'
-                  }`}
-                  placeholder="John Doe"
+                  className={inputClass(!!errors.name)}
+                  placeholder="Your full name"
                 />
                 {errors.name && (
                   <p id="name-error" className="mt-1 text-sm text-red-600">{errors.name}</p>
                 )}
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-1">
+                <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-ink">
                   Email Address
                 </label>
                 <input
@@ -201,17 +189,15 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? 'email-error' : undefined}
                   required
-                  className={`w-full rounded-sm border bg-white px-4 py-3 transition-colors focus:border-blue-600 focus:ring-2 focus:ring-blue-500/25 ${
-                    errors.email ? 'border-red-500' : 'border-neutral-300'
-                  }`}
-                  placeholder="john@example.com"
+                  className={inputClass(!!errors.email)}
+                  placeholder="you@example.com"
                 />
                 {errors.email && (
                   <p id="email-error" className="mt-1 text-sm text-red-600">{errors.email}</p>
                 )}
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-gray-900 mb-1">
+                <label htmlFor="subject" className="mb-1.5 block text-sm font-semibold text-ink">
                   Subject
                 </label>
                 <input
@@ -226,9 +212,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                   aria-invalid={!!errors.subject}
                   aria-describedby={errors.subject ? 'subject-error' : undefined}
                   required
-                  className={`w-full rounded-sm border bg-white px-4 py-3 transition-colors focus:border-blue-600 focus:ring-2 focus:ring-blue-500/25 ${
-                    errors.subject ? 'border-red-500' : 'border-neutral-300'
-                  }`}
+                  className={inputClass(!!errors.subject)}
                   placeholder="How can we help?"
                 />
                 {errors.subject && (
@@ -236,7 +220,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                 )}
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-1">
+                <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-ink">
                   Message
                 </label>
                 <textarea
@@ -251,10 +235,8 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                   aria-describedby={errors.message ? 'message-error' : undefined}
                   required
                   rows={4}
-                  className={`w-full rounded-sm border bg-white px-4 py-3 transition-colors focus:border-blue-600 focus:ring-2 focus:ring-blue-500/25 ${
-                    errors.message ? 'border-red-500' : 'border-neutral-300'
-                  }`}
-                  placeholder="Your message here..."
+                  className={inputClass(!!errors.message)}
+                  placeholder="Tell us about your training needs..."
                 />
                 {errors.message && (
                   <p id="message-error" className="mt-1 text-sm text-red-600">{errors.message}</p>
@@ -263,7 +245,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md border border-amber-700/25 bg-amber-500 px-6 py-4 font-bold text-neutral-950 shadow-sm transition-all hover:bg-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                className="btn-primary flex w-full cursor-pointer justify-center disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>Sending...</>
@@ -279,18 +261,14 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
 
           {/* Contact info card */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={
-              reduceMotion
-                ? { duration: 0.4, delay: 0.1 }
-                : { type: 'spring', stiffness: 360, damping: 32, delay: 0.12 }
-            }
-            className="rounded-md border border-white/10 bg-neutral-900 p-8 font-sans text-white shadow-lg md:p-10"
+            transition={{ duration: 0.4, delay: 0.08 }}
+            className="rounded-2xl border border-border bg-forest p-8 text-cream md:p-10"
           >
-            <h3 className="text-xl font-bold text-white mb-8 font-heading tracking-tight">Contact Information</h3>
-            <div className="space-y-6">
+            <h3 className="mb-8 font-display text-xl font-medium">Contact Information</h3>
+            <div className="space-y-5">
               {contactInfo.map((info) => {
                 const Wrapper = info.link ? 'a' : 'div'
                 const wrapperProps = info.link
@@ -301,30 +279,30 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                     key={info.title}
                     {...wrapperProps}
                     className={cn(
-                      'flex items-start gap-4 group p-4 rounded-xl transition-colors duration-200',
-                      info.link ? 'hover:bg-white/5 cursor-pointer' : 'hover:bg-white/[0.02]'
+                      'flex items-start gap-4 rounded-xl p-3 transition-colors',
+                      info.link ? 'cursor-pointer hover:bg-cream/5' : ''
                     )}
                   >
-                    <div className="flex-shrink-0 rounded-sm border border-white/10 bg-white/10 p-3 transition-colors group-hover:bg-primary-500/20">
-                      <info.icon className="h-5 w-5 text-primary-400" aria-hidden />
+                    <div className="flex shrink-0 rounded-full bg-cream/10 p-2.5">
+                      <info.icon className="h-5 w-5 text-terracotta-light" aria-hidden />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white mb-0.5">{info.title}</h4>
-                      <p className="text-[15px] font-medium leading-relaxed text-stone-200">{info.value}</p>
+                      <h4 className="text-sm font-semibold text-cream/90">{info.title}</h4>
+                      <p className="mt-0.5 text-[15px] leading-relaxed text-cream/70">{info.value}</p>
                     </div>
                   </Wrapper>
                 )
               })}
             </div>
-            <div className="mt-8 border-t border-white/15 pt-8">
+            <div className="mt-8 border-t border-cream/15 pt-6">
               <Link
                 href={mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex cursor-pointer items-center gap-2 font-semibold text-primary-400 transition-colors hover:text-primary-300"
+                className="link-arrow text-terracotta-light hover:text-cream"
               >
                 View on Map
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </motion.div>
