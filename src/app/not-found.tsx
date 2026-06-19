@@ -9,9 +9,9 @@ export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-stone px-4 py-20">
       <div className="w-full max-w-md text-center">
-        <p className="font-display text-[8rem] font-light leading-none text-gold/20">404</p>
-        <h1 className="mt-4 font-display text-3xl text-midnight">Page not found</h1>
-        <p className="mt-4 text-slate">We couldn&apos;t find the page you&apos;re looking for.</p>
+        <p className="font-display text-[10rem] font-semibold leading-none text-gold/40">404</p>
+        <h1 className="mt-4 headline-sub">Page not found</h1>
+        <p className="mt-4 body-copy">We couldn&apos;t find the page you&apos;re looking for.</p>
         <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <Link href="/" className="btn-gold justify-center">
             <Home className="h-4 w-4" /> Home

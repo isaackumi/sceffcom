@@ -39,12 +39,12 @@ export default function NewsletterForm() {
           placeholder="your@email.com"
           disabled={status === 'loading'}
           aria-label="Email for newsletter subscription"
-          className="w-full border border-stone/20 bg-midnight-light px-4 py-3 text-stone placeholder:text-stone/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold disabled:opacity-70"
+          className="w-full border border-stone/30 bg-midnight-light px-4 py-4 text-lg text-stone placeholder:text-stone/60 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold disabled:opacity-70"
         />
         {message && (
           <p
             role="status"
-            className={`text-sm ${status === 'success' ? 'text-gold-light' : 'text-red-400'}`}
+            className={`text-base ${status === 'success' ? 'text-gold-light' : 'text-red-400'}`}
           >
             {message}
           </p>

@@ -8,6 +8,7 @@ export default function JsonLd() {
     name: siteContent.meta.brandName,
     description: siteContent.meta.description,
     url: siteUrl,
+    logo: `${siteUrl}${siteContent.meta.logo}`,
     email: siteContent.contact.email,
     telephone: siteContent.contact.mobile.map((n) => n.replace(/\s/g, '')),
     address: {

@@ -2,6 +2,7 @@ import { siteContent } from '@/data/content'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import Link from 'next/link'
 import NewsletterForm from './NewsletterForm'
+import SiteLogo from '@/components/ui/SiteLogo'
 
 export default function Footer() {
   return (
@@ -9,9 +10,14 @@ export default function Footer() {
       <div className="container-editorial py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
-            <p className="font-display text-3xl font-light text-stone">SCEFFCOM</p>
-            <p className="mt-1 text-sm font-semibold uppercase tracking-[0.25em] text-gold">Consult</p>
-            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-stone/60">
+            <SiteLogo size="md" showName={false} className="[&_img]:ring-2 [&_img]:ring-gold/30" />
+            <p className="mt-4 font-display text-2xl font-medium text-stone md:text-3xl">
+              {siteContent.meta.brandName}
+            </p>
+            <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold-light">
+              {siteContent.meta.brandTagline}
+            </p>
+            <p className="mt-6 max-w-sm text-lg leading-relaxed text-stone/90">
               {siteContent.footer.description}
             </p>
           </div>
@@ -23,7 +29,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-stone/70 transition-colors hover:text-gold-light"
+                    className="text-base font-medium text-stone/90 transition-colors hover:text-gold-light"
                   >
                     {link.name}
                   </Link>
@@ -39,7 +45,7 @@ export default function Footer() {
                 <li key={service.name}>
                   <Link
                     href={service.href}
-                    className="text-sm text-stone/70 transition-colors hover:text-gold-light"
+                    className="text-base font-medium text-stone/90 transition-colors hover:text-gold-light"
                   >
                     {service.name}
                   </Link>
@@ -50,7 +56,7 @@ export default function Footer() {
 
           <div className="md:col-span-3">
             <p className="label-gold mb-5 !text-gold-light">Reach us</p>
-            <ul className="space-y-4 text-sm text-stone/70">
+            <ul className="space-y-4 text-base text-stone/90">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                 <span>{siteContent.contact.location}</span>
@@ -82,14 +88,14 @@ export default function Footer() {
         <div className="my-12 h-px bg-stone/10" />
 
         <div className="max-w-lg">
-          <p className="font-display text-xl text-stone">Stay updated</p>
-          <p className="mt-2 text-sm text-stone/60">Program updates, workshops, and language initiatives.</p>
+          <p className="font-display text-2xl text-stone md:text-3xl">Stay updated</p>
+          <p className="mt-2 text-base text-stone/85">Program updates, workshops, and language initiatives.</p>
           <div className="mt-5">
             <NewsletterForm />
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-stone/10 pt-8 text-sm text-stone/50 sm:flex-row sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-stone/20 pt-8 text-base text-stone/80 sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} {siteContent.meta.orgLegalName}</p>
           <div className="flex gap-8">
             <Link href="/privacy" className="hover:text-gold-light">

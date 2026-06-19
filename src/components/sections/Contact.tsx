@@ -102,7 +102,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
 
   const inputClass = (hasError: boolean) =>
     cn(
-      'w-full border border-border bg-stone px-4 py-3.5 text-ink transition-colors focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold',
+      'w-full border border-border bg-stone px-4 py-4 text-lg text-ink transition-colors focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold',
       hasError ? 'border-red-500' : ''
     )
 
@@ -151,7 +151,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                 </div>
               )}
               <div>
-                <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-ink">
+                <label htmlFor="name" className="mb-2 block text-base font-bold text-ink">
                   Your Name
                 </label>
                 <input
@@ -174,7 +174,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                 )}
               </div>
               <div>
-                <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-ink">
+                <label htmlFor="email" className="mb-2 block text-base font-bold text-ink">
                   Email Address
                 </label>
                 <input
@@ -197,7 +197,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                 )}
               </div>
               <div>
-                <label htmlFor="subject" className="mb-1.5 block text-sm font-semibold text-ink">
+                <label htmlFor="subject" className="mb-2 block text-base font-bold text-ink">
                   Subject
                 </label>
                 <input
@@ -220,7 +220,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                 )}
               </div>
               <div>
-                <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-ink">
+                <label htmlFor="message" className="mb-2 block text-base font-bold text-ink">
                   Message
                 </label>
                 <textarea
@@ -267,7 +267,7 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
             transition={{ duration: 0.4, delay: 0.08 }}
             className="bg-midnight p-8 text-stone md:p-10"
           >
-            <h3 className="mb-10 font-display text-2xl font-medium">Contact Information</h3>
+            <h3 className="mb-10 font-display text-3xl font-semibold md:text-4xl">Contact Information</h3>
             <div className="space-y-6">
               {contactInfo.map((info) => {
                 const Wrapper = info.link ? 'a' : 'div'
@@ -283,10 +283,10 @@ export default function Contact({ hideHeader }: { hideHeader?: boolean } = {}) {
                       info.link ? 'cursor-pointer hover:text-gold-light' : ''
                     )}
                   >
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-light">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-light">
                       {info.title}
                     </p>
-                    <p className="mt-2 text-[15px] leading-relaxed text-stone/80">{info.value}</p>
+                    <p className="mt-2 text-lg leading-relaxed text-stone md:text-xl">{info.value}</p>
                   </Wrapper>
                 )
               })}

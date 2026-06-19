@@ -13,14 +13,14 @@ export default function TermsPage() {
     <div className="min-h-screen bg-stone text-ink">
       <main className="pb-24 pt-36 sm:pt-40">
         <div className="container-editorial max-w-3xl">
-          <Link href="/" className="mb-10 inline-flex items-center gap-2 text-sm text-slate hover:text-midnight">
+          <Link href="/" className="mb-10 inline-flex items-center gap-2 text-base font-semibold text-midnight/70 hover:text-midnight">
             <ArrowLeft className="h-4 w-4" aria-hidden />
             Back to Home
           </Link>
           <div className="hairline-gold mb-8 h-0.5 w-16" />
           <p className="label-gold mb-6">Legal</p>
           <h1 className="headline-section">Terms of Service</h1>
-          <div className="mt-10 space-y-6 text-lg leading-relaxed text-slate">
+          <div className="mt-10 space-y-6 body-copy">
             <p>
               By using the {siteContent.meta.orgLegalName} website and services, you agree to these terms of service.
             </p>

@@ -17,14 +17,14 @@ export default function AboutPage() {
 
       <section className="section-pad border-b border-border">
         <div className="container-editorial max-w-3xl">
-          <div className="space-y-6 text-[17px] leading-relaxed text-slate">
+          <div className="space-y-6 body-copy">
             {about.paragraphs.slice(1).map((para, i) => (
               <p key={i}>{para}</p>
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             {siteContent.meta.brandTags.map((tag) => (
-              <span key={tag} className="border border-border px-3 py-1 text-xs text-slate">
+              <span key={tag} className="border-2 border-midnight/20 px-4 py-1.5 text-sm font-semibold text-midnight">
                 {tag}
               </span>
             ))}
@@ -46,13 +46,13 @@ export default function AboutPage() {
           </div>
           <div className="lg:col-span-8">
             <p className="label-gold mb-4">Leadership</p>
-            <h2 className="font-display text-3xl font-light text-midnight">
+            <h2 className="headline-sub">
               {siteContent.teamMembers.founder.name}
             </h2>
-            <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-gold">
+            <p className="mt-3 text-base font-bold uppercase tracking-widest text-gold-dark">
               {siteContent.teamMembers.founder.title}
             </p>
-            <p className="mt-6 text-[16px] leading-relaxed text-slate">{siteContent.teamMembers.founder.bio}</p>
+            <p className="mt-6 body-copy">{siteContent.teamMembers.founder.bio}</p>
           </div>
         </div>
       </section>
@@ -61,14 +61,14 @@ export default function AboutPage() {
         <div className="container-editorial grid gap-16 md:grid-cols-2">
           <div>
             <p className="label-gold mb-4">Vision</p>
-            <p className="text-[16px] leading-relaxed text-slate">{about.vision.text}</p>
+            <p className="body-copy">{about.vision.text}</p>
           </div>
           <div>
             <p className="label-gold mb-4">Mission</p>
-            <p className="mb-4 text-midnight">{about.mission.intro}</p>
-            <ul className="space-y-3">
+            <p className="mb-4 text-lg font-semibold text-midnight md:text-xl">{about.mission.intro}</p>
+            <ul className="space-y-4">
               {about.mission.points.map((point, i) => (
-                <li key={i} className="flex gap-4 text-[15px] text-slate">
+                <li key={i} className="flex gap-4 body-copy">
                   <span className="mt-2 h-px w-6 shrink-0 bg-gold" aria-hidden />
                   {point}
                 </li>
@@ -84,14 +84,14 @@ export default function AboutPage() {
             <p className="label-gold mb-6">{about.whoWeServe.title}</p>
             <ul className="space-y-3">
               {about.whoWeServe.items.map((item) => (
-                <li key={item} className="text-[16px] text-slate">{item}</li>
+                <li key={item} className="body-copy">{item}</li>
               ))}
             </ul>
           </div>
           <div>
             <p className="label-gold mb-6">{about.approach.title}</p>
-            <p className="font-medium text-midnight">{about.approach.languages}</p>
-            <ul className="mt-4 space-y-2 text-slate">
+            <p className="text-lg font-semibold text-midnight md:text-xl">{about.approach.languages}</p>
+            <ul className="mt-4 space-y-3 body-copy">
               {about.approach.methods.map((m) => (
                 <li key={m}>{m}</li>
               ))}
@@ -113,8 +113,8 @@ export default function AboutPage() {
             >
               <span className="program-index">{String(i + 1).padStart(2, '0')}</span>
               <div>
-                <h3 className="font-display text-2xl text-midnight">{item.title}</h3>
-                <p className="mt-3 text-slate">{item.description}</p>
+                <h3 className="font-display text-3xl font-semibold text-midnight md:text-4xl">{item.title}</h3>
+                <p className="mt-3 body-copy">{item.description}</p>
               </div>
             </motion.article>
           ))}

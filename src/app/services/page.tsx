@@ -21,7 +21,7 @@ export default function ServicesPage() {
           <p className="body-lead mt-6 max-w-2xl">{services.sectionIntro}</p>
           <ul className="mt-12 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
             {services.sectors.map((sector) => (
-              <li key={sector} className="bg-stone p-6 text-[15px] text-slate">{sector}</li>
+              <li key={sector} className="bg-stone p-6 text-lg font-medium text-midnight md:text-xl">{sector}</li>
             ))}
           </ul>
         </div>
@@ -32,7 +32,7 @@ export default function ServicesPage() {
           <p className="label-gold mb-8">What we offer</p>
           <div className="grid gap-px bg-border md:grid-cols-3">
             {services.offerCategories.map((c) => (
-              <div key={c} className="bg-stone-dark p-8 font-display text-xl text-midnight">{c}</div>
+              <div key={c} className="bg-stone-dark p-8 font-display text-2xl font-semibold text-midnight md:text-3xl">{c}</div>
             ))}
           </div>
         </div>
@@ -45,11 +45,11 @@ export default function ServicesPage() {
           <div className="mt-12 space-y-0">
             {services.lwfActivities.items.map((activity) => (
               <article key={activity.title} className="border-t border-border py-10">
-                <h3 className="font-display text-2xl text-midnight">{activity.title}</h3>
+                <h3 className="font-display text-3xl font-semibold text-midnight md:text-4xl">{activity.title}</h3>
                 {'hashtags' in activity && activity.hashtags && (
-                  <p className="mt-2 text-sm text-gold">{activity.hashtags.join(' · ')}</p>
+                  <p className="mt-2 text-base font-semibold text-gold-dark">{activity.hashtags.join(' · ')}</p>
                 )}
-                <p className="mt-4 max-w-2xl text-slate">{activity.description}</p>
+                <p className="mt-4 max-w-2xl body-copy">{activity.description}</p>
               </article>
             ))}
           </div>
@@ -60,7 +60,7 @@ export default function ServicesPage() {
         <div className="container-editorial grid gap-16 lg:grid-cols-2">
           <div>
             <p className="label-gold mb-6 !text-gold-light">{about.whoWeServe.title}</p>
-            <ul className="space-y-3 text-stone/75">
+            <ul className="space-y-3 text-lg text-stone md:text-xl">
               {about.whoWeServe.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -68,8 +68,8 @@ export default function ServicesPage() {
           </div>
           <div>
             <p className="label-gold mb-6 !text-gold-light">{about.approach.title}</p>
-            <p className="text-stone">{about.approach.languages}</p>
-            <ul className="mt-4 space-y-2 text-stone/75">
+            <p className="text-lg text-stone md:text-xl">{about.approach.languages}</p>
+            <ul className="mt-4 space-y-3 text-lg text-stone md:text-xl">
               {about.approach.methods.map((m) => (
                 <li key={m}>{m}</li>
               ))}

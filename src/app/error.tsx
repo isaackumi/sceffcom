@@ -19,8 +19,8 @@ export default function Error({
     <div className="flex min-h-screen flex-col items-center justify-center bg-stone px-4 py-20">
       <div className="w-full max-w-md text-center">
         <AlertCircle className="mx-auto h-12 w-12 text-gold" />
-        <h1 className="mt-6 font-display text-3xl text-midnight">Something went wrong</h1>
-        <p className="mt-4 text-slate">Please try again.</p>
+        <h1 className="mt-6 headline-sub">Something went wrong</h1>
+        <p className="mt-4 body-copy">Please try again.</p>
         <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <button type="button" onClick={reset} className="btn-gold justify-center">
             <RefreshCw className="h-4 w-4" /> Try again

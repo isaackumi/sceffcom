@@ -58,10 +58,10 @@ export default function About() {
         <div className="grid gap-12 md:grid-cols-2">
           <div>
             <p className="label-gold mb-4">Mission</p>
-            <p className="mb-4 font-medium text-midnight">{about.mission.intro}</p>
-            <ul className="space-y-3">
+            <p className="mb-4 text-lg font-semibold text-midnight md:text-xl">{about.mission.intro}</p>
+            <ul className="space-y-4">
               {about.mission.points.map((point, i) => (
-                <li key={i} className="flex gap-4 text-[15px] leading-relaxed text-slate">
+                <li key={i} className="flex gap-4 body-copy">
                   <span className="mt-2 h-px w-6 shrink-0 bg-gold" aria-hidden />
                   {point}
                 </li>
@@ -70,7 +70,7 @@ export default function About() {
           </div>
           <div>
             <p className="label-gold mb-4">Vision</p>
-            <p className="text-[15px] leading-relaxed text-slate">{about.vision.text}</p>
+            <p className="body-copy">{about.vision.text}</p>
           </div>
         </div>
 
@@ -80,10 +80,10 @@ export default function About() {
         <div className="grid gap-px bg-border md:grid-cols-2">
           {about.objectives.items.map((item, i) => (
             <div key={i} className="bg-stone-dark p-8 md:p-10">
-              <span className="font-display text-3xl font-light text-gold/50">
+              <span className="font-display text-4xl font-semibold text-gold-dark">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <p className="mt-4 text-[15px] leading-relaxed text-slate">{item}</p>
+              <p className="mt-4 body-copy">{item}</p>
             </div>
           ))}
         </div>

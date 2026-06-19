@@ -37,13 +37,17 @@ export const metadata: Metadata = {
     siteName: siteContent.meta.title,
     title: siteContent.meta.title,
     description: siteContent.meta.description,
-    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: siteContent.meta.title }],
+    images: [{ url: siteContent.meta.logo, width: 512, height: 512, alt: siteContent.meta.logoAlt }],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteContent.meta.title,
     description: siteContent.meta.description,
-    images: ['/images/og-image.jpg'],
+    images: [siteContent.meta.logo],
+  },
+  icons: {
+    icon: siteContent.meta.logo,
+    apple: siteContent.meta.logo,
   },
   robots: { index: true, follow: true },
 }
@@ -52,8 +56,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
       <head>
-        <link rel="icon" href="/images/logo/nananom.jpg" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/images/logo/nananom.jpg" />
         <meta name="theme-color" content="#0B1628" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>

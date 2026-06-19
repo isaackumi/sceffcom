@@ -23,7 +23,7 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-cormorant), Georgia, serif;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   html {
@@ -49,19 +49,27 @@
   }
 
   .label-gold {
-    @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-gold;
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-gold-dark;
   }
 
   .headline-display {
-    @apply font-display text-display-xl font-light text-midnight;
+    @apply font-display text-display-xl font-medium text-midnight;
   }
 
   .headline-section {
-    @apply font-display text-display-lg font-light text-midnight;
+    @apply font-display text-display-lg font-medium text-midnight;
+  }
+
+  .headline-sub {
+    @apply font-display text-display-md font-medium text-midnight;
   }
 
   .body-lead {
-    @apply text-lg leading-[1.7] text-slate md:text-xl;
+    @apply text-xl leading-[1.65] text-midnight/90 md:text-2xl;
+  }
+
+  .body-copy {
+    @apply text-lg leading-relaxed text-midnight/85 md:text-xl;
   }
 
   .hairline {
@@ -73,19 +81,19 @@
   }
 
   .btn-gold {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2.5 bg-gold px-8 py-3.5 text-sm font-semibold tracking-wide text-stone transition-colors duration-200 hover:bg-gold-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-stone;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2.5 bg-gold px-8 py-4 text-base font-bold tracking-wide text-midnight transition-colors duration-200 hover:bg-gold-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-stone;
   }
 
   .btn-outline {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2.5 border border-midnight/25 bg-transparent px-8 py-3.5 text-sm font-semibold tracking-wide text-midnight transition-colors duration-200 hover:border-midnight hover:bg-midnight hover:text-stone focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-midnight focus-visible:ring-offset-2;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2.5 border-2 border-midnight bg-transparent px-8 py-4 text-base font-bold tracking-wide text-midnight transition-colors duration-200 hover:bg-midnight hover:text-stone focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-midnight focus-visible:ring-offset-2;
   }
 
   .link-gold {
-    @apply inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-gold transition-colors hover:text-gold-dark;
+    @apply inline-flex cursor-pointer items-center gap-2 text-base font-bold text-gold-dark transition-colors hover:text-gold;
   }
 
   .pull-quote {
-    @apply border-l-2 border-gold pl-6 font-display text-2xl font-light italic leading-snug text-midnight md:text-3xl;
+    @apply border-l-4 border-gold pl-6 font-display text-3xl font-medium italic leading-snug text-midnight md:text-4xl;
   }
 
   .program-row {
@@ -93,7 +101,7 @@
   }
 
   .program-index {
-    @apply font-display text-5xl font-light leading-none text-gold/40 md:text-6xl;
+    @apply font-display text-6xl font-medium leading-none text-gold md:text-7xl;
   }
 
   .nav-floating {
@@ -103,7 +111,7 @@
   .vertical-label {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    @apply text-[10px] font-semibold uppercase tracking-[0.35em] text-slate-faint;
+    @apply text-xs font-bold uppercase tracking-[0.3em] text-midnight/55;
   }
 }
 

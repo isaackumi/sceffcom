@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { siteContent } from '@/data/content'
+import SiteLogo from '@/components/ui/SiteLogo'
 
 const words = ['Speak', 'Well,', 'Speak', 'Right']
 
@@ -56,12 +57,12 @@ export default function Hero() {
                   className="overflow-hidden"
                 >
                   <span
-                    className={`block font-display font-light leading-[0.9] tracking-tight text-midnight ${
+                    className={`block font-display font-medium leading-[0.88] tracking-tight text-midnight ${
                       i === 0 || i === 2
-                        ? 'text-[clamp(3rem,12vw,7.5rem)]'
+                        ? 'text-[clamp(3.5rem,14vw,9rem)]'
                         : i === 3
-                          ? 'text-[clamp(3rem,12vw,7.5rem)] text-gold'
-                          : 'text-[clamp(2rem,6vw,4rem)] italic text-slate'
+                          ? 'text-[clamp(3.5rem,14vw,9rem)] text-gold-dark'
+                          : 'text-[clamp(2.5rem,8vw,5rem)] italic text-midnight/75'
                     }`}
                   >
                     {word}
@@ -101,7 +102,7 @@ export default function Hero() {
           >
             <Image
               src={heroImage}
-              alt={siteContent.hero.slides?.[0]?.alt ?? 'SCEFFCOM training session'}
+              alt={siteContent.hero.slides?.[0]?.alt ?? 'sceffcomconsult training session'}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 66vw"
@@ -133,11 +134,14 @@ export default function Hero() {
           transition={{ delay: 0.8 }}
           className="mt-10 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-end sm:justify-between"
         >
-          <div>
-            <p className="font-display text-2xl font-light text-midnight">{siteContent.meta.brandName}</p>
-            <p className="mt-1 text-sm text-slate">{siteContent.meta.brandTagline}</p>
+          <div className="flex items-center gap-5">
+            <SiteLogo size="lg" showName={false} linked={false} />
+            <div>
+              <p className="font-display text-3xl font-medium text-midnight md:text-4xl">{siteContent.meta.brandName}</p>
+              <p className="mt-2 text-lg font-semibold text-midnight/80">{siteContent.meta.brandTagline}</p>
+            </div>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-slate">
+          <p className="max-w-lg text-lg leading-relaxed text-midnight/85 md:text-xl">
             Instruction in Twi, Ga, Ewe, Hausa &amp; English — online and in-person across Ghana.
           </p>
         </motion.div>

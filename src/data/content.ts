@@ -1,12 +1,14 @@
 export const siteContent = {
   meta: {
     siteUrl: 'https://www.sceffcomconsult.org',
-    title: 'SCEFFCOM CONSULT',
-    brandName: 'SCEFFCOM CONSULT',
-    brandAcronym: 'SCEFFCOM',
-    navShort: 'SCEFFCOM',
-    navLong: 'SCEFFCOM CONSULT',
-    orgLegalName: 'SCEFFCOM CONSULT',
+    title: 'sceffcomconsult',
+    brandName: 'sceffcomconsult',
+    brandAcronym: 'sceffcomconsult',
+    navShort: 'sceffcomconsult',
+    navLong: 'sceffcomconsult',
+    orgLegalName: 'sceffcomconsult',
+    logo: '/images/logo/logo.jpeg',
+    logoAlt: 'sceffcomconsult — Strategic Context and Effective Communication Consult',
     parentOrg: 'Language Watch Foundation (LWF)',
     brandTagline: 'Strategic Context & Effective Communication',
     brandTags: [
@@ -17,11 +19,11 @@ export const siteContent = {
       'KASA — Word Therapy & Peace Outreach',
     ],
     fullTitle:
-      'SCEFFCOM CONSULT — Strategic Context & Effective Communication (Skills training & consulting)',
+      'sceffcomconsult — Strategic Context & Effective Communication (Skills training & consulting)',
     description:
-      'SCEFFCOM CONSULT, a department of Language Watch Foundation, delivers context-sensitive communication training and consultancy—public speaking, voice and speech, media, political, cultural, and institutional communication for leaders, teams, and communities in Ghana and beyond.',
+      'sceffcomconsult, a department of Language Watch Foundation, delivers context-sensitive communication training and consultancy—public speaking, voice and speech, media, political, cultural, and institutional communication for leaders, teams, and communities in Ghana and beyond.',
     keywords:
-      'SCEFFCOM, effective communication, public speaking, voice training, media training, Language Watch Foundation, Ghana, Accra, consulting, Twi, decorous language',
+      'sceffcomconsult, effective communication, public speaking, voice training, media training, Language Watch Foundation, Ghana, Accra, consulting, Twi, decorous language',
   },
 
   navigation: [
@@ -34,14 +36,14 @@ export const siteContent = {
 
   hero: {
     eyebrow: 'Language Watch Foundation — decorous & responsible language use',
-    title: 'SCEFFCOM CONSULT',
+    title: 'sceffcomconsult',
     description:
       'We equip individuals and organizations to communicate well and right—clearly, appropriately, and confidently—across social, cultural, political, media, business, and domestic settings.',
     ctaText: 'Explore Our Programs',
     backgroundImage: '/images/out1.jpeg',
     slides: [
-      { image: '/images/out1.jpeg', alt: 'SCEFFCOM communication training session' },
-      { image: '/images/out2.jpeg', alt: 'SCEFFCOM workshop and coaching' },
+      { image: '/images/out1.jpeg', alt: 'sceffcomconsult communication training session' },
+      { image: '/images/out2.jpeg', alt: 'sceffcomconsult workshop and coaching' },
       { image: '/images/twi1.png', alt: 'Effective communication in context' },
     ],
   },
@@ -49,8 +51,8 @@ export const siteContent = {
   about: {
     title: 'About Us',
     paragraphs: [
-      'SCEFFCOM CONSULT (Strategic Context & Effective Communication) is a department of Language Watch Foundation (LWF), offering specialized training and workshops in speaking and communication across social, cultural, political, chief palace discourse, media, business, domestic, and other real-life contexts.',
-      'Operating under a foundation that advocates for decorous and responsible language use, SCEFFCOM focuses on equipping individuals and organizations with the skills to communicate well and right—clearly, appropriately, and confidently within the specific contexts that matter to them.',
+      'sceffcomconsult (Strategic Context & Effective Communication) is a department of Language Watch Foundation (LWF), offering specialized training and workshops in speaking and communication across social, cultural, political, chief palace discourse, media, business, domestic, and other real-life contexts.',
+      'Operating under a foundation that advocates for decorous and responsible language use, sceffcomconsult focuses on equipping individuals and organizations with the skills to communicate well and right—clearly, appropriately, and confidently within the specific contexts that matter to them.',
       'We recognize that communication is not one-size-fits-all. What is appropriate in a corporate boardroom differs from a traditional palace setting, a courtroom, a religious gathering, or the media space. Our training helps participants understand context-sensitive communication, use language that reflects respect and cultural awareness, achieve desired outcomes, and develop confidence in speech delivery.',
     ],
     vision: {
@@ -68,7 +70,7 @@ export const siteContent = {
       ],
     },
     objectives: {
-      title: 'Why Choose SCEFFCOM',
+      title: 'Why Choose sceffcomconsult',
       items: [
         'Specialized and unique context-driven approach to communication.',
         'Practical, experience-based learning grounded in real-life challenges.',
@@ -103,7 +105,7 @@ export const siteContent = {
     activities: {
       title: 'Our Core Programs',
       subtitle:
-        'SCEFFCOM delivers tailored training programs and workshops that address real-life communication challenges across media, politics, culture, social life, business, law, healthcare, religion, and family settings.',
+        'sceffcomconsult delivers tailored training programs and workshops that address real-life communication challenges across media, politics, culture, social life, business, law, healthcare, religion, and family settings.',
       items: [
         {
           title: 'Socio-Cultural & Political Context of Communication',
@@ -134,7 +136,7 @@ export const siteContent = {
     pageSubtitle:
       'Skills training, speaking-club outreach, and language, culture, media & communication consultancy—promoting decorous language for national peace and development.',
     sectionIntro:
-      'SCEFFCOM delivers practical, interactive training adapted to the needs of participants. Each program addresses the real contexts where communication matters most.',
+      'sceffcomconsult delivers practical, interactive training adapted to the needs of participants. Each program addresses the real contexts where communication matters most.',
     offerCategories: [
       'Skills Training, Seminars & Workshops',
       'Outreach for our speaking clubs (children, youth, and adults)',
@@ -176,16 +178,16 @@ export const siteContent = {
 
   teamMembers: {
     intro:
-      'SCEFFCOM CONSULT is led by Dr. Nana Anima Wiafe-Akenten, supported by the Language Watch Foundation and SCEFFCOM team of communication practitioners, consultants, and facilitators.',
+      'sceffcomconsult is led by Dr. Nana Anima Wiafe-Akenten, supported by the Language Watch Foundation and sceffcomconsult team of communication practitioners, consultants, and facilitators.',
     registeredNote:
-      'Language Watch and SCEFFCOM offer unique, quality, professional & affordable tuition for private clients, youth, children, clubs, groups, and corporate entities—online and in-person.',
+      'Language Watch and sceffcomconsult offer unique, quality, professional & affordable tuition for private clients, youth, children, clubs, groups, and corporate entities—online and in-person.',
     founder: {
       name: 'Dr. Nana Anima Wiafe-Akenten',
       title: 'Team Lead · Founder & C.E.O',
       subtitle:
         '1st PhD Holder in Twi (Ghanaian Language Studies) · Lecturer · Language, Culture, Media & Communication Consultant',
-      bio: 'Dr. Nana Anima Wiafe-Akenten is the founder and C.E.O of Language Watch Foundation and SCEFFCOM CONSULT. As the first PhD holder in Twi, she leads programs in strategic communication, public speaking, voice training, and context-sensitive messaging—serving private clients, youth, children, clubs, groups, and corporate entities through online and in-person classes.',
-      image: '/images/logo/nananom.jpg',
+      bio: 'Dr. Nana Anima Wiafe-Akenten is the founder and C.E.O of Language Watch Foundation and sceffcomconsult. As the first PhD holder in Twi, she leads programs in strategic communication, public speaking, voice training, and context-sensitive messaging—serving private clients, youth, children, clubs, groups, and corporate entities through online and in-person classes.',
+      image: '/images/doc.jpeg',
     },
     advisoryBoard: [] as { name: string; role: string }[],
     associateMembers: [] as { name: string; role: string }[],

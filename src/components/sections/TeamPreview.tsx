@@ -40,11 +40,11 @@ export default function TeamPreview() {
           >
             <p className="label-gold mb-6">Leadership</p>
             <h2 className="headline-section">{founder.name}</h2>
-            <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-gold">{founder.title}</p>
-            <p className="mt-2 text-sm italic text-slate">{founder.subtitle}</p>
+            <p className="mt-3 text-base font-bold uppercase tracking-widest text-gold-dark">{founder.title}</p>
+            <p className="mt-2 text-lg italic text-midnight/75">{founder.subtitle}</p>
             <p className="body-lead mt-8 max-w-xl">{founder.bio}</p>
             {teamMembers.registeredNote && (
-              <p className="mt-6 text-sm leading-relaxed text-slate-faint">{teamMembers.registeredNote}</p>
+              <p className="mt-6 text-base leading-relaxed text-midnight/70 md:text-lg">{teamMembers.registeredNote}</p>
             )}
             <Link href="/team" className="link-gold mt-10">
               View full profile

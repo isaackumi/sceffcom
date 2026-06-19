@@ -25,9 +25,9 @@ const config: Config = {
           faint: 'rgba(184, 134, 11, 0.12)',
         },
         slate: {
-          DEFAULT: '#4A5D73',
-          light: '#6B7D91',
-          faint: '#8E9DAD',
+          DEFAULT: '#2A3544',
+          light: '#3D4D61',
+          faint: '#4F6175',
         },
         ink: '#0C1222',
         // Legacy aliases
@@ -70,8 +70,9 @@ const config: Config = {
         heading: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
       fontSize: {
-        'display-xl': ['clamp(3.5rem,11vw,8rem)', { lineHeight: '0.92', letterSpacing: '-0.03em' }],
-        'display-lg': ['clamp(2.5rem,6vw,4.5rem)', { lineHeight: '1', letterSpacing: '-0.025em' }],
+        'display-xl': ['clamp(4rem, 14vw, 10rem)', { lineHeight: '0.9', letterSpacing: '-0.03em' }],
+        'display-lg': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '0.95', letterSpacing: '-0.025em' }],
+        'display-md': ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
       },
       maxWidth: {
         editorial: '72rem',

@@ -34,8 +34,8 @@ export default function PageHeader({
       <div className="container-editorial">
         <Link
           href={backHref}
-          className={`mb-10 inline-flex items-center gap-2 text-sm font-medium transition-colors ${
-            dark ? 'text-stone/60 hover:text-stone' : 'text-slate hover:text-midnight'
+          className={`mb-10 inline-flex items-center gap-2 text-base font-semibold transition-colors ${
+            dark ? 'text-stone/85 hover:text-stone' : 'text-midnight/70 hover:text-midnight'
           }`}
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
@@ -50,9 +50,9 @@ export default function PageHeader({
         >
           <div className="hairline-gold mb-8 h-0.5 w-16" />
           <p className={`label-gold mb-6 ${dark ? '!text-gold-light' : ''}`}>{eyebrow}</p>
-          <h1 className={`headline-section text-balance ${dark ? 'text-stone' : ''}`}>{title}</h1>
+          <h1 className={`headline-display text-balance ${dark ? 'text-stone' : ''}`}>{title}</h1>
           {description && (
-            <p className={`body-lead mt-6 ${dark ? 'text-stone/70' : ''}`}>{description}</p>
+            <p className={`body-lead mt-6 ${dark ? 'text-stone' : ''}`}>{description}</p>
           )}
         </motion.div>
       </div>

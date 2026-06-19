@@ -15,8 +15,8 @@ export default function Services({ hideHeader }: { hideHeader?: boolean } = {}) 
         {!hideHeader && (
           <div className="mb-16 max-w-2xl md:mb-24">
             <p className="label-gold mb-6 !text-gold-light">Programs</p>
-            <h2 className="font-display text-display-lg font-light text-stone">What We Offer</h2>
-            <p className="mt-6 text-lg leading-relaxed text-stone/70">
+            <h2 className="font-display text-display-lg font-medium text-stone">What We Offer</h2>
+            <p className="mt-6 text-xl leading-relaxed text-stone md:text-2xl">
               {siteContent.about.activities.subtitle}
             </p>
           </div>
@@ -32,12 +32,12 @@ export default function Services({ hideHeader }: { hideHeader?: boolean } = {}) 
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="grid gap-6 border-t border-stone/15 py-10 md:grid-cols-[5rem_1fr_auto] md:items-start md:gap-10 md:py-14"
             >
-              <span className="font-display text-5xl font-light text-gold/30 md:text-6xl">
+              <span className="program-index">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>
-                <h3 className="font-display text-2xl font-medium text-stone md:text-3xl">{item.title}</h3>
-                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-stone/65 md:text-base">
+                <h3 className="font-display text-3xl font-semibold text-stone md:text-4xl">{item.title}</h3>
+                <p className="mt-4 max-w-2xl text-lg leading-relaxed text-stone/90 md:text-xl">
                   {item.description}
                 </p>
               </div>

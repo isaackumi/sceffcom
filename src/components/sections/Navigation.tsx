@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { siteContent } from '@/data/content'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import SiteLogo from '@/components/ui/SiteLogo'
 
 export default function Navigation() {
   const [open, setOpen] = useState(false)
@@ -31,14 +32,7 @@ export default function Navigation() {
     <header aria-label="Main navigation">
       <nav className="nav-floating">
         <div className="flex items-center justify-between gap-4 px-5 py-3.5 sm:px-6">
-          <Link href="/" className="group flex min-w-0 items-baseline gap-3">
-            <span className="font-display text-xl font-medium tracking-tight text-midnight sm:text-2xl">
-              SCEFFCOM
-            </span>
-            <span className="hidden text-[10px] font-medium uppercase tracking-[0.2em] text-slate-faint sm:inline">
-              Consult
-            </span>
-          </Link>
+          <SiteLogo size="sm" showName className="group" />
 
           <div className="hidden items-center gap-8 md:flex">
             {links.map((l) => (
@@ -46,14 +40,14 @@ export default function Navigation() {
                 key={l.href}
                 href={l.href}
                 className={cn(
-                  'text-sm font-medium transition-colors duration-200',
-                  active(l.href) ? 'text-midnight' : 'text-slate hover:text-midnight'
+                  'text-base font-semibold transition-colors duration-200',
+                  active(l.href) ? 'text-midnight' : 'text-midnight/65 hover:text-midnight'
                 )}
               >
                 {l.name}
               </Link>
             ))}
-            <Link href="/contact" className="btn-gold !px-5 !py-2.5 !text-xs">
+            <Link href="/contact" className="btn-gold !px-6 !py-3 !text-sm">
               Enquire
             </Link>
           </div>
@@ -86,8 +80,8 @@ export default function Navigation() {
                     key={l.href}
                     href={l.href}
                     className={cn(
-                      'flex min-h-[48px] items-center text-base font-medium',
-                      active(l.href) ? 'text-midnight' : 'text-slate'
+                      'flex min-h-[48px] items-center text-lg font-semibold',
+                      active(l.href) ? 'text-midnight' : 'text-midnight/70'
                     )}
                   >
                     {l.name}
